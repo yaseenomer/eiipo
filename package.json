@@ -31,7 +31,8 @@
     "react-dom": "18.2.0",
     "solidity-coverage": "^0.7.21",
     "typechain": "^8.1.0",
-    "web3modal": "^1.9.8"
+    "web3modal": "^1.9.8",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "eslint": "8.22.0",

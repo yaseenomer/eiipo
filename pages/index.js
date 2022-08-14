@@ -9,6 +9,15 @@ import {
   eiipoAddress
 } from '../config'
 
+const projectId = "2DLcy3dwWQm3pDdpu5S1tnaeAtV";
+const projectSecret = "6b075fc393bdcb882b472c755cd2adf0";
+
+
+
+const auth = "Basic " + Buffer.from(projectId + ":" + projectSecret,'utf8').toString("base64");
+
+axios.defaults.headers.common['Authorization'] = auth;
+
 export default function Home() {
 
   const [nfts, setNfts] = useState([])
@@ -28,7 +37,6 @@ export default function Home() {
     
     const contract = new ethers.Contract(eiipoAddress, EIIPO.abi, provider)
 
-    console.log('contract =>', contract)
      const data = await contract.fetchCertificates()
 
     /*
@@ -50,6 +58,8 @@ export default function Home() {
       }
       return item
     }))
+    console.log('items =>', items)
+
     setNfts(items)
     setLoadingState('loaded') 
   }
