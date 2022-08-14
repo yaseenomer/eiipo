@@ -75,7 +75,9 @@ export default function createItem() {
 
     setLoading(true)
     const url = await uploadToIPFS()
-    console.log(url)
+    console.log({
+      url
+    })
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
@@ -89,8 +91,7 @@ export default function createItem() {
     })
 
     const { userId } = formInput
-    console.log({userId: +userId})
-    let transaction = await contract.createToken(url, +userId)
+    let transaction = await contract.createToken(url, userId)
     await transaction.wait()
     setLoading(false)
 
