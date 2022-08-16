@@ -1,1 +1,1 @@
-export const eiipoAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+export const eiipoAddress = "0xD356fc0f504E6d8fa8b20786B846Ae6C0DD94700"

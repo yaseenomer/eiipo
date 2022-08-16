@@ -81,7 +81,7 @@ export default function createItem() {
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
-    const signer = provider.getSigner()
+    const signer = provider.getSigner() 
 
     /* next, create the item */
     let contract = new ethers.Contract(eiipoAddress, EIIPO.abi, signer)

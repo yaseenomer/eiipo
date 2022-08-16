@@ -10,8 +10,6 @@ const fs = require('fs');
 
 
 async function main() {
-
-
   const EIIPO = await hre.ethers.getContractFactory("EIIPO");
   const eiipo = await EIIPO.deploy();
 

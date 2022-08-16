@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Web3Modal from 'web3modal'
+
 import EIIPO from '../artifacts/contracts/EIIPO.sol/EIIPO.json'
 
 import {
@@ -32,10 +34,22 @@ export default function Home() {
 
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
-    const provider = new ethers.providers.JsonRpcProvider()
+    const web3Modal = new Web3Modal()
+
+    const connection = await web3Modal.connect()
+
+    const provider = new ethers.providers.Web3Provider(connection)
+
+
+
+    console.log("provider: ", provider)
+
+    
 
     
     const contract = new ethers.Contract(eiipoAddress, EIIPO.abi, provider)
+
+    console.log("contract: ", contract)
 
      const data = await contract.fetchCertificates()
 

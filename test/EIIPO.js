@@ -1,5 +1,3 @@
-
-
 describe("EIIPO", function () {
   it("Should create and execute EIIPO", async function () {
     /* deploy the marketplace */
